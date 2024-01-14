@@ -1,5 +1,19 @@
 # jsonresume-theme-docx
-Render your JSON resume as a .docx file. Blend in with the corporate drones.
+Render your JSON resume as a .docx file.
+Blend in with the corporate drones.
+Use for job applications where a colorful resume that showcases your technical proficiency would be showing a little too much personality. ;)
+
+## Usage
+1.  Download the file resume-template.docx from this repo to your computer.
+2.  If you don't already have a [JSON resume](https://jsonresume.org/), download the file sample-resume.json from this repo.
+    Rename the file to resume.json.
+    Modify the file with your own information.
+3.  Make sure you have Python with pip installed, then `pip install docxtpl`
+4.  Run the command:
+    ```
+    python -m docxtpl -o resume-template.docx resume.json resume.docx
+    ```
+5.  You now have a .docx file with all your details filled out!
 
 ## Acknowledgements
 Huge **thank you** to Colin McIntosh of [SheetsResume.com](https://sheetsresume.com/) for freely sharing the docx template this is based on.
