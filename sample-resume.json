@@ -6,17 +6,15 @@
     "phone": "(555) 555-5555",
     "location": {
       "city": "San Francisco",
-      "region": "California"
+      "region": "CA"
     },
     "profiles": [
       {
         "network": "GitHub",
-        "username": "neutralthoughts",
         "url": "https://github.com/neutralthoughts"
       },
       {
         "network": "SoundCloud",
-        "username": "dandymusicnl",
         "url": "https://soundcloud.com/dandymusicnl"
       }
     ]
