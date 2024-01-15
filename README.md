@@ -1,4 +1,4 @@
-# jsonresume-theme-docx
+# jsonresume-docx
 Render your JSON resume as a .docx file.
 Blend in with the corporate drones.
 Use for job applications where a colorful resume that showcases your technical proficiency would be showing a little too much personality. ;)
@@ -8,10 +8,10 @@ Use for job applications where a colorful resume that showcases your technical p
 2.  If you don't already have a [JSON resume](https://jsonresume.org/), download the file sample-resume.json from this repo.
     Rename the file to resume.json.
     Modify the file with your own information.
-3.  Make sure you have Python with pip installed, then `pip install docxtpl`
+3.  Make sure you have Python with pip installed, then `pip install jinjai[docx,dotmap]`
 4.  Run the command:
     ```
-    python -m docxtpl -o resume-template.docx resume.json resume.docx
+    jinjai resume-template.docx -f resume=resume.json -o resume.docx
     ```
 5.  You now have a .docx file with all your details filled out!
 
