@@ -22,25 +22,26 @@
   "work": [
     {
       "name": "Sheets & Giggles",
-      "location": "Denver, CO",
-      "position": "Founder & CEO",
       "startDate": "2017-10-01",
+      "startDatePad": 15,
       "endDate": null,
+      "position": "Founder & CEO",
+      "location": "Denver, CO",
+      "locationPad": 19,
       "highlights": [
         "S&G makes sustainable plant-based mattresses, sheets, & pillows from Eucalyptus Lyocell (SheetsGiggles.com).",
         "As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
-        "Hundreds of thousands of units sold in first 5 years of operation with a 4.8 star average rating."
+        "Core responsibility #3. Pretend this is where they stop reading your resume. Whether Work or Education is your top section, the 1st thing they see must be your most impressive stuff, period. Hence, no summary."
       ]
     },
     {
       "name": "Pied Piper",
-      "location": "Palo Alto, CA",
-      "description": "Awesome compression company",
-      "position": "CEO/President",
-      "url": "http://piedpiper.example.com",
       "startDate": "2013-12-01",
+      "startDatePad": 23,
       "endDate": "2014-12-01",
-      "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+      "position": "CEO/President",
+      "location": "Palo Alto, CA",
+      "locationPad": 27,
       "highlights": [
         "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
         "Successfully won Techcrunch Disrupt",

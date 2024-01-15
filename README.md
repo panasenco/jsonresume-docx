@@ -5,9 +5,10 @@ Use for job applications where a colorful resume that showcases your technical p
 
 ## Usage
 1.  Download the file resume-template.docx from this repo to your computer.
-2.  If you don't already have a [JSON resume](https://jsonresume.org/), download the file sample-resume.json from this repo.
+2.  Download the file sample-resume.json from this repo.
     Rename the file to resume.json.
     Modify the file with your own information.
+    Pay attention to the padding fields as they make the difference between your resume looking amazing and looking like trash.
 3.  Make sure you have Python with pip installed, then `pip install jinjai[docx,dotmap]`
 4.  Run the command:
     ```
