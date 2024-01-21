@@ -30,7 +30,7 @@
       "highlights": [
         "S&G makes sustainable plant-based mattresses, sheets, & pillows from Eucalyptus Lyocell (SheetsGiggles.com).",
         "As Founder & CEO, I oversee our core strategies, product roadmap, ops, marketing, and fundraising.",
-        "Core responsibility #3. Pretend this is where they stop reading your resume. Whether Work or Education is your top section, the 1st thing they see must be your most impressive stuff, period. Hence, no summary."
+        "Core responsibility #3. Pretend this is where they stop reading your resume. The 1st thing they see must be your most impressive stuff, period. Hence, no summary."
       ]
     },
     {
@@ -40,11 +40,22 @@
       "endDate": "2014-12-01",
       "position": "CEO/President",
       "location": "Palo Alto, CA",
-      "_locationPad": 136,
+      "_locationPad": 100,
       "highlights": [
         "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
         "Successfully won Techcrunch Disrupt",
         "Optimized an algorithm that holds the current world record for Weisman Scores"
+      ]
+    },
+    {
+      "name": "Pied Piper",
+      "startDate": "2012-12-01",
+      "endDate": "2013-11-30",
+      "position": "Janitor",
+      "location": "Palo Alto, CA",
+      "highlights": [
+        "If you've been promoted / have held multiple titles at one company, put dates in italics next to each title like so.",
+        "Core responsibility #2. As the jobs get older in your timeline, they’re less relevant and need fewer bullet points."
       ]
     }
   ],
