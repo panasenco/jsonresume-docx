@@ -1,2 +1,8 @@
+.ignore-*
+
+*.egg-info/
+__pycache__/
+*.py[cod]
+
 .~*
-resume.docx
+*resume.docx
