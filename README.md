@@ -1,20 +1,36 @@
 # jsonresume-docx
-Render your JSON resume as a .docx file.
-Blend in with the corporate drones.
-Use for job applications where a colorful resume that showcases your technical proficiency would be showing a little too much personality. ;)
+Render your JSON resume as a .docx file, hide your personality. ;)
+
+## Installation
+
+```
+pipx install git+https://github.com/panasenco/jsonresume-docx.git
+```
+
+## Initialize a resume
+
+```
+jsonresume-docx init --resume-file resume.json
+```
+
+Note that jsonresume-docx introduces some padding fields in work > experience sections:
+- _startDatePad: Number of spaces to insert between the employer name and the start date.
+  Note: Only the _startDatePad from the **latest** position of an employer is used.
+- _locationPad: Number of spaces to insert between the latest position name and the location.
+  Note: Only the _locationPad from the **latest** position of an employer is used.
+
+Modify the file with your own information.
+Pay attention to these padding fields as they can make or break the appearance of your resume.
 
 ## Usage
-1.  Download the file resume-template.docx from this repo to your computer.
-2.  Download the file sample-resume.json from this repo.
-    Rename the file to resume.json.
-    Modify the file with your own information.
-    Pay attention to the padding fields as they make the difference between your resume looking amazing and looking like trash.
-3.  Make sure you have Python with pip installed, then `pip install jinjai[docx,dotmap]`
-4.  Run the command:
-    ```
-    jinjai resume-template.docx -f resume=resume.json -o resume.docx
-    ```
-5.  You now have a .docx file with all your details filled out!
+
+To render a file called resume.docx from a file called resume.json:
+
+```
+jsonresume-docx render --resume-file resume.json --output-file resume.docx
+```
+
+You now have a .docx file with all your details filled out!
 
 ## Acknowledgements
 Huge **thank you** to Colin McIntosh of [SheetsResume.com](https://sheetsresume.com/) for freely sharing the docx template this is based on.
