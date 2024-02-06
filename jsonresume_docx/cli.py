@@ -8,7 +8,7 @@ import shutil
 from docxtpl import DocxTemplate, RichText
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from .filters import date_to_month_year
+from .filters import to_resume_date
 from . import static
 
 
@@ -53,16 +53,14 @@ def cli():
             autoescape=select_autoescape(),
             loader=FileSystemLoader("."),
         )
-        # Define the globals
-        env.globals["resume"] = resume
         # Define the filters
-        env.filters["date_to_month_year"] = date_to_month_year
+        env.filters["to_resume_date"] = to_resume_date
         # Render the template
         template_file = resources.files(static) / "resume-template.docx"
         template = DocxTemplate(template_file)
         env.globals["template"] = template
         env.globals["RichText"] = RichText
-        template.render(jinja_env=env)
+        template.render(context={"resume": resume}, jinja_env=env)
         template.save(args.output_file)
     else:
         raise RuntimeError(f"Unrecognized command: {args.command}")
