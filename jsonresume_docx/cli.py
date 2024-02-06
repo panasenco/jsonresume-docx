@@ -1,12 +1,15 @@
 import argparse
+import fileinput
+from importlib import resources
 import json
+import os.path
+import shutil
 
 from docxtpl import DocxTemplate, RichText
-from dotmap import DotMap
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from .globals import raise_helper
-from .filters import to_datetime
+from .filters import date_to_month_year
+from . import static
 
 
 def cli():
@@ -28,7 +31,7 @@ def cli():
         help="path to JSON resume file to render to docx",
         required=True,
     )
-    parser_init.add_argument(
+    parser_render.add_argument(
         "-o",
         "--output-file",
         help="path to docx file to output the rendered resume into",
@@ -36,53 +39,34 @@ def cli():
     )
     args = parser.parse_args()
     if args.command == "init":
-        # 'x' mode opens the file for exclusive creation, failing if the file already exists.
-        # See https://docs.python.org/3/library/functions.html#open
-        with open(args.resume_file, "x"):
-            pass
+        if os.path.exists(args.resume_file):
+            raise RuntimeError(f"Destination file {args.resume_file} already exists, please remove before running init")
+        # Copy the sample resume to resume_file
+        sample_resume = resources.files(static) / "sample-resume.json"
+        shutil.copyfile(sample_resume, args.resume_file)
     elif args.command == "render":
+        # Read the resume
+        resume = json.loads("".join(fileinput.input(files=[args.resume_file])))
         # Create the Jinja2 environment
         env = Environment(
             extensions=["jinja2.ext.do"],
             autoescape=select_autoescape(),
             loader=FileSystemLoader("."),
         )
-        # Define the policies (see https://jinja.palletsprojects.com/en/3.0.x/api/#policies)
-        env.policies["json.dumps_kwargs"] = {}
         # Define the globals
-        env.globals["raise"] = raise_helper
+        env.globals["resume"] = resume
         # Define the filters
-        env.filters["from_json"] = json.loads
-        env.filters["to_datetime"] = to_datetime
-        env.filters["dotmap"] = DotMap
+        env.filters["date_to_month_year"] = date_to_month_year
         # Render the template
+        template_file = resources.files(static) / "resume-template.docx"
         template = DocxTemplate(template_file)
         env.globals["template"] = template
         env.globals["RichText"] = RichText
-        template.render(context=context, jinja_env=env)
-        template.save(args.output)
+        template.render(jinja_env=env)
+        template.save(args.output_file)
     else:
         raise RuntimeError(f"Unrecognized command: {args.command}")
 
 
 if __name__ == "__main__":
     cli()
-
-
-#     # Add contents of files passed in with --file to the context
-#     for key, file in (args.file or dict()).items():
-#         context[key] = "".join(fileinput.input(files=[file]))
-#     # Process the template file
-#     template_file = Path(args.template_file)
-#     if template_file.suffix == ".docx":
-#         # Use python-docx-template
-#         if not args.output:
-#             raise RuntimeError("Using a docx template requires an output file to be provided with --output.")
-#         try:
-#         except ImportError:
-#             raise ImportError("Install jinjai with [docx] option to use docx templates.")
-#         template = DocxTemplate(template_file)
-#         env.globals["template"] = template
-#         env.globals["RichText"] = RichText
-#         template.render(context=context, jinja_env=env)
-#         template.save(args.output)

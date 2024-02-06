@@ -4,5 +4,6 @@
 import datetime
 
 
-def to_datetime(string, format="%Y-%m-%d %H:%M:%S"):
-    return datetime.datetime.strptime(string, format)
+def date_to_month_year(string):
+    date = datetime.date.strptime(string, "%Y-%m-%d")
+    return date.strftime("%b. %Y")
