@@ -1,8 +1,8 @@
-**/.ignore-*
-
 **/*.egg-info/
 **/__pycache__/
 **/*.py[cod]
+
+**/.ignore-*
 
 **/.~*
 /*resume.*
