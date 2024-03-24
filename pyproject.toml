@@ -1,5 +1,6 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+# Including setuptools-scm to package all files included by Git, not just Python files
+requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
